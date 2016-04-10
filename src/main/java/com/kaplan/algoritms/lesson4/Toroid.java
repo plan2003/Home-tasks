@@ -1,7 +1,7 @@
-package com.kaplan.basictypes.lesson4;
+package com.kaplan.algoritms.lesson4;
 
 
-import com.kaplan.basictypes.lesson3.LengthAndSquareCircle;
+import com.kaplan.algoritms.lesson3.LengthAndSquareCircle;
 
 import java.util.Scanner;
 

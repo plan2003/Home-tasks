@@ -1,4 +1,4 @@
-package com.kaplan.basictypes.lesson3;
+package com.kaplan.algoritms.lesson3;
 
 public class LateralSurfaceSquareAndVolumeOfCylinder {
     public static void main(String[] args) {
