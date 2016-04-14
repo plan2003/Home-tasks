@@ -1,4 +1,4 @@
-package com.kaplan.algoritms.lesson3;
+package uits.gv1604.algoritms.lesson3;
 
 
 public class HelloWorldAndText {

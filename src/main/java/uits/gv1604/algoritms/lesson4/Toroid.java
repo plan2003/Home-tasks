@@ -1,7 +1,8 @@
-package com.kaplan.algoritms.lesson4;
+package uits.gv1604.algoritms.lesson4;
 
 
-import com.kaplan.algoritms.lesson3.LengthAndSquareCircle;
+import com.kaplan.library.CorrectEntry;
+import uits.gv1604.algoritms.lesson3.LengthAndSquareCircle;
 
 import java.util.Scanner;
 
@@ -13,29 +14,37 @@ public class Toroid {
         System.out.println("Select an option:");//Menu
         System.out.println("1. Square of surface of the toroid");
         System.out.println("2. Volume of the toroid");
-        choice = enterValidByteForMenuFromConsole();
+        choice = CorrectEntry.enterValueForMenuOfTwoItems();
         switch (choice) {
             case 1:
-                double squareOfSurfaceOfToroid = calculateSquareOfSurfaceOfToroid();
-                System.out.println("Square of surface of the toroid: " + squareOfSurfaceOfToroid + " m^2");
+                getAndPrintSquareOfSurfaceOfToroid();
                 break;
             case 2:
-                double volumeOfToroid = calculateVolumeOfToroid();
-                System.out.println(" Volume of the toroid: " + volumeOfToroid + " m^3");
+                getAndPrintVolumeOfToroid();
                 break;
         }
     }
 
+    public static void getAndPrintVolumeOfToroid() {
+        double volumeOfToroid = calculateVolumeOfToroid();
+        System.out.println(" Volume of the toroid: " + volumeOfToroid + " m^3");
+    }
+
+    public static void getAndPrintSquareOfSurfaceOfToroid() {
+        double squareOfSurfaceOfToroid = calculateSquareOfSurfaceOfToroid();
+        System.out.println("Square of surface of the toroid: " + squareOfSurfaceOfToroid + " m^2");
+    }
+
     private static double calculateVolumeOfToroid() {
         System.out.println("Distance from the center of the circumference to the axis of rotation. ");
-        double bigRadius = LengthAndSquareCircle.getRadius();
+        double bigRadius = CorrectEntry.getRadius();
         System.out.println("Radius of the circumference ");
-        double smallRadius = LengthAndSquareCircle.getRadius();
-        return  2 * LengthAndSquareCircle.PI * LengthAndSquareCircle.PI * bigRadius * smallRadius * smallRadius;
+        double smallRadius = CorrectEntry.getRadius();
+        return 2 * Math.PI * Math.PI * bigRadius * smallRadius * smallRadius;
     }
 
 
-    public static byte enterValidByteForMenuFromConsole() {
+    /*public static byte enterValidByteForMenuFromConsole() {
 
         Scanner scanner = new Scanner(System.in);
         byte result = 0;
@@ -51,16 +60,16 @@ public class Toroid {
                 continue;
             }
         }
-        return result;
+        return result;*/
 
-    }
+   // }
 
     public static double calculateSquareOfSurfaceOfToroid() {
         System.out.println("Distance from the center of the circumference to the axis of rotation. ");
-        double bigRadius = LengthAndSquareCircle.getRadius();
+        double bigRadius = CorrectEntry.getRadius();
         System.out.println("Radius of the circumference ");
-        double smallRadius = LengthAndSquareCircle.getRadius();
+        double smallRadius = CorrectEntry.getRadius();
 
-        return 4 * LengthAndSquareCircle.PI * LengthAndSquareCircle.PI * bigRadius * smallRadius;
+        return 4 * Math.PI * Math.PI * bigRadius * smallRadius;
     }
 }
