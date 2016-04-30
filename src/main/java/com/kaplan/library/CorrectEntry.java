@@ -85,4 +85,22 @@ public class CorrectEntry {
         }
         return result;
     }
+    public static int enterYearFromConsole() {
+
+        Scanner scanner = new Scanner(System.in);
+        int result = 0;
+        while (true) {
+            try {
+                result = Integer.parseInt(scanner.nextLine());
+                if (result < 1960 || result > 2016) {
+                    throw new Exception();
+                }
+                break;
+            } catch (Exception e) {
+                System.out.println("Input mismatch. Please try again:");
+                continue;
+            }
+        }
+        return result;
+    }
 }
