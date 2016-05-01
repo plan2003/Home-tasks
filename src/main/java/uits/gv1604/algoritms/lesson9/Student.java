@@ -13,12 +13,12 @@ public class Student extends Person {
     private String group;
 
     public Student() {
-        this("Petrov", "Ivan", "Sidorovich", "Uganda, Jungle", new SimpleDateFormat("1991"), 55500000, "AP", 5, "JV1604");
+        this(1000,"Petrov", "Ivan", "Sidorovich", "Uganda, Jungle", new SimpleDateFormat("1991"), 55500000, "AP", 5, "JV1604");
     }
 
-    public Student(String surname, String name, String middleName, String address, SimpleDateFormat birthday,
+    public Student(int id, String surname, String name, String middleName, String address, SimpleDateFormat birthday,
                    int telephone, String faculty, int course, String group) {
-        super(surname, name, middleName, address);
+        super(id,surname, name, middleName, address);
         this.birthday = birthday;
         this.telephone = telephone;
         this.faculty = faculty;
@@ -26,16 +26,16 @@ public class Student extends Person {
         this.group = group;
     }
 
-    public Student(String surname, String name, String middleName, String address, SimpleDateFormat day) {
-        super(surname, name, middleName, address);
+    public Student(int id, String surname, String name, String middleName, String address, SimpleDateFormat day) {
+        super(id,surname, name, middleName, address);
         this.birthday = day;
 
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "surname='" + getSurname() + "\'" +
+        return "Student{ Id:" + getId() +
+                ", surname='" + getSurname() + "\'" +
                 ", name='" + getName() + "\'" +
                 ", middleName='" + getMiddleName() + "\'" +
                 ", address='" + getAddress() + "\'" + ", birthday: " + birthday.toPattern() +

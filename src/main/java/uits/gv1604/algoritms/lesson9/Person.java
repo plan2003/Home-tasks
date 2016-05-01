@@ -1,12 +1,15 @@
 package uits.gv1604.algoritms.lesson9;
 
 public class Person {
+
+    private int id;
     private  String surname;
     private  String name;
     private  String middleName;
     private  String address;
 
-    public Person(String surname, String name, String middleName, String address) {
+    public Person(int id, String surname, String name, String middleName, String address) {
+        this.id = id;
         this.surname = surname;
         this.name = name;
         this.middleName = middleName;
@@ -49,8 +52,15 @@ public class Person {
     public void setAddress(String address) {
         this.address = address;
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String toString() {
-        return "Student{" +
+        return "Student{ Id: " + getId() +
                 "surname='" + getSurname() + "\'" +
                 ", name='" + getName() + "\'" +
                 ", middleName='" + getMiddleName() + "\'" +

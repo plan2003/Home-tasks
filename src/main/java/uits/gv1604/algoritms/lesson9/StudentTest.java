@@ -10,23 +10,23 @@ public class StudentTest {
 
     public static void main(String[] args) {
         Student[] students = new Student[10];
-        students[0] = new Student("Smith", "John", "Tom", "5Avenue, 46", new SimpleDateFormat("1990"),
+        students[0] = new Student(0,"Smith", "John", "Tom", "5Avenue, 46", new SimpleDateFormat("1990"),
                 5551111, "MT", 2, "JV1702");
-        students[1] = new Student("Smith", "Mery", "Tom", "5Avenue, 46", new SimpleDateFormat("1995"),
+        students[1] = new Student(1,"Smith", "Mery", "Tom", "5Avenue, 46", new SimpleDateFormat("1995"),
                 5551681, "EMS", 4, "JV1704");
-        students[2] = new Student("Stone", "Nick", "Jey", "6Avenue, 12", new SimpleDateFormat("1990"),
+        students[2] = new Student(2, "Stone", "Nick", "Jey", "6Avenue, 12", new SimpleDateFormat("1990"),
                 5341651, "AP", 1, "JV1701");
-        students[3] = new Student("Klein", "Kelvin", "Armando", "79Street, 2", new SimpleDateFormat("1991"),
+        students[3] = new Student(3, "Klein", "Kelvin", "Armando", "79Street, 2", new SimpleDateFormat("1991"),
                 5327057, "AP", 2, "JV1702");
-        students[4] = new Student("Krivulya", "Gerasim", "Matveevich", "Skripnik, 4a", new SimpleDateFormat("1992"),
+        students[4] = new Student(4,"Krivulya", "Gerasim", "Matveevich", "Skripnik, 4a", new SimpleDateFormat("1992"),
                 5438050, "E", 1, "JV1701");
-        students[5] = new Student("Donovan", "Robert", "George", "Beverly Hills, 90210", new SimpleDateFormat("1992"),
+        students[5] = new Student(5, "Donovan", "Robert", "George", "Beverly Hills, 90210", new SimpleDateFormat("1992"),
                 5233375, "E", 1, "JV1701");
-        students[6] = new Student("Coen", "Nikolas", "Billy", "Beverly Hills, 3", new SimpleDateFormat("1993"),
+        students[6] = new Student(6, "Coen", "Nikolas", "Billy", "Beverly Hills, 3", new SimpleDateFormat("1993"),
                 5239147, "INFIZ", 1, "JV1701");
-        students[7] = new Student("Mcdonald", "Sasha", "Gregor", "Times Square, 87", new SimpleDateFormat("1992"),
+        students[7] = new Student(7, "Mcdonald", "Sasha", "Gregor", "Times Square, 87", new SimpleDateFormat("1992"),
                 5232975, "E", 4, "JV1704");
-        students[8] = new Student("Kelly", "Kiron", "Vinny", "Melrose, 38", new SimpleDateFormat("1991"),
+        students[8] = new Student(8, "Kelly", "Kiron", "Vinny", "Melrose, 38", new SimpleDateFormat("1991"),
                 5551443, "EMS", 2, "JV1702");
         students[9] = new Student();
         String[] faculty = doStringArrayFromFaculty(students);
