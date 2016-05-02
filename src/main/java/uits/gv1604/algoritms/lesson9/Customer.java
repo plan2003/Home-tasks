@@ -1,21 +1,21 @@
 package uits.gv1604.algoritms.lesson9;
 
 public class Customer extends Person {
-    private int numberCreditCard;
+    private long numberCreditCard;
     private int bankAccountNumber;
 
     public Customer(int id, String surname, String name, String middleName, String address,
-                    int numberCreditCard, int bankAccountNumber) {
+                    long numberCreditCard, int bankAccountNumber) {
         super(id, surname, name, middleName, address);
         this.numberCreditCard = numberCreditCard;
         this.bankAccountNumber = bankAccountNumber;
     }
 
-    public int getNumberCreditCard() {
+    public long getNumberCreditCard() {
         return numberCreditCard;
     }
 
-    public void setNumberCreditCard(int numberCreditCard) {
+    public void setNumberCreditCard(long numberCreditCard) {
         this.numberCreditCard = numberCreditCard;
     }
 

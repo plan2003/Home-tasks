@@ -54,8 +54,9 @@ public class LengthAndSquareCircle {
             innerRadius = CorrectEntry.getRadius();
             if (innerRadius > outerRadius) //To verify compliance with inner radius and the outer radius.
                 System.out.println("The inner radius can't be more than the outer! Please try again.");
-            else
+            else {
                 break;
+            }
         }
         return Math.PI * (outerRadius * outerRadius - innerRadius * innerRadius);
     }

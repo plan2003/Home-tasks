@@ -103,4 +103,21 @@ public class CorrectEntry {
         }
         return result;
     }
+    public static long enterLongFromConsole() {
+    Scanner scanner = new Scanner(System.in);
+    long result = 0L;
+    while (true) {
+        try {
+            result = Long.parseLong(scanner.nextLine());
+            if (result < 0 || result > 9_223_372_036_854_775_806L) {
+                throw new Exception();
+            }
+            break;
+        } catch (Exception e) {
+            System.out.println("Input mismatch. Please try again:");
+            continue;
+        }
+    }
+    return result;
+}
 }
