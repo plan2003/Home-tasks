@@ -3,17 +3,20 @@ package uits.gv1604.algoritms.lesson11;
 
 
 
-public abstract class Flower {
+public abstract class Flower implements Comparable<Flower> {
     private String color;
     private int freshness;
-    private double stemLength;
+    private float stemLength;
     private float averegePrice;
 
-    public Flower(float averegePrice, String color, int freshness, double stemLength) {
+    public Flower(float averegePrice, String color, int freshness, float stemLength) {
         this.averegePrice = averegePrice;
         this.color = color;
         this.freshness = freshness;
         this.stemLength = stemLength;
+    }
+    public int compareTo(Flower flower) {
+       return (int)((this.getStemLength() - flower.getStemLength())*10.0f);
     }
 
     public String getColor() {
@@ -32,11 +35,11 @@ public abstract class Flower {
         this.freshness = freshness;
     }
 
-    public double getStemLength() {
+    public float getStemLength() {
         return stemLength;
     }
 
-    public void setStemLength(double stemLength) {
+    public void setStemLength(float stemLength) {
         this.stemLength = stemLength;
     }
 
@@ -71,7 +74,7 @@ class Rose extends Flower {
                 '}';
     }
 
-    public Rose(float averegePrice, String color, int freshness, double stemLength) {
+    public Rose(float averegePrice, String color, int freshness, float stemLength) {
         super(averegePrice, color, freshness, stemLength);
 
     }
@@ -85,7 +88,7 @@ class Rose extends Flower {
 class Tulip extends Flower {
     private final static String NAME = "Tulip";
 
-    public Tulip(float averegePrice, String color, int freshness, double stemLength) {
+    public Tulip(float averegePrice, String color, int freshness, float stemLength) {
         super(averegePrice, color, freshness, stemLength);
     }
 
@@ -109,7 +112,7 @@ class Lilia extends Flower {
 
 
 
-    public Lilia(float averegePrice, String color, int freshness, double stemLength) {
+    public Lilia(float averegePrice, String color, int freshness, float stemLength) {
         super(averegePrice, color, freshness, stemLength);
     }
 

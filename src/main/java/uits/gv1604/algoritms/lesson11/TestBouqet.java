@@ -9,6 +9,8 @@ public class TestBouqet {
         Bouquet bouquet = new Bouquet(q  );
         bouquet.getBouqet();
         bouquet.print();
+        bouquet.getPriceOfBouquet();
+        bouquet.sortBouquetByStemLength();
     }
     public static int enterQuantityFromConsole() {
 
