@@ -5,20 +5,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Student extends Person {
-   SimpleDateFormat birthday;
+public class Student extends Person implements Comparable<Student> {
+    SimpleDateFormat birthday;
     private int telephone;
     private String faculty;
     private int course;
     private String group;
 
     public Student() {
-        this(1000,"Petrov", "Ivan", "Sidorovich", "Uganda, Jungle", new SimpleDateFormat("1991"), 55500000, "AP", 5, "JV1604");
+        this(1000, "Petrov", "Ivan", "Sidorovich", "Uganda, Jungle", new SimpleDateFormat("1991"), 55500000, "AP", 5, "JV1604");
     }
 
     public Student(int id, String surname, String name, String middleName, String address, SimpleDateFormat birthday,
                    int telephone, String faculty, int course, String group) {
-        super(id,surname, name, middleName, address);
+        super(id, surname, name, middleName, address);
         this.birthday = birthday;
         this.telephone = telephone;
         this.faculty = faculty;
@@ -27,7 +27,7 @@ public class Student extends Person {
     }
 
     public Student(int id, String surname, String name, String middleName, String address, SimpleDateFormat day) {
-        super(id,surname, name, middleName, address);
+        super(id, surname, name, middleName, address);
         this.birthday = day;
 
     }
@@ -74,5 +74,15 @@ public class Student extends Person {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        if (this.getSurname().compareTo(o.getSurname()) != 0) {
+            return this.getSurname().compareTo(o.getSurname());
+        } else {
+            return this.getName().compareTo(o.getName());
+        }
+
     }
 }
