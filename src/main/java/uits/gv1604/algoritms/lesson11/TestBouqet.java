@@ -6,13 +6,14 @@ public class TestBouqet {
     public static void main(String[] args) {
         System.out.println("Set the quantity of flowers: ");
         int q = enterQuantityFromConsole();
-        Bouquet bouquet = new Bouquet(q  );
+        Bouquet bouquet = new Bouquet(q);
         bouquet.getBouqet();
         bouquet.print();
         bouquet.getPriceOfBouquet();
         bouquet.sortBouquetByFreshness();
         bouquet.printFlowersByStemLengthRange();
     }
+
     public static int enterQuantityFromConsole() {
 
         Scanner scanner = new Scanner(System.in);

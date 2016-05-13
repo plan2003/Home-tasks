@@ -36,8 +36,6 @@ public class Bouquet {
         float priceOfTulip = random.nextFloat() * (MAX_PRICE_OF_TULIP - MIN_PRICE_OF_TULIP + 1.0f) + MIN_PRICE_OF_TULIP;
         float priceOfRose = random.nextFloat() * (MAX_PRICE_OF_ROSE - MIN_PRICE_OF_ROSE + 1.0f) + MIN_PRICE_OF_ROSE;
 
-
-
         for (int i = 0; i < flowers.length; i++) {
             float stemOfFlower =
                     random.nextFloat() * (MAX_STEM_LENGTH_OF_FLOWER - MIN_STEM_OF_FLOWER + 1.0f) + MIN_STEM_OF_FLOWER;
@@ -45,13 +43,13 @@ public class Bouquet {
 
             switch (choice) {
                 case 0:
-                    flowers[i] = new Lilia(priceOfLilia, "white", random.nextInt(10)+1, stemOfFlower);
+                    flowers[i] = new Lilia(priceOfLilia, "white", random.nextInt(10) + 1, stemOfFlower);
                     break;
                 case 1:
-                    flowers[i] = new Rose(priceOfRose, "red", random.nextInt(10)+1, stemOfFlower);
+                    flowers[i] = new Rose(priceOfRose, "red", random.nextInt(10) + 1, stemOfFlower);
                     break;
                 case 2:
-                    flowers[i] = new Tulip(priceOfTulip, "yellow", random.nextInt(10)+1, stemOfFlower);
+                    flowers[i] = new Tulip(priceOfTulip, "yellow", random.nextInt(10) + 1, stemOfFlower);
                     break;
 
             }
@@ -85,17 +83,19 @@ public class Bouquet {
         System.out.println("Price of accesory - " + result);
         for (int i = 0; i < quantity; i++) {
             result += flowers[i].getRealPrice();
-            System.out.println("Price of flower N" +(i+1) + "  - " + flowers[i].getRealPrice());
+            System.out.println("Price of flower N" + (i + 1) + "  - " + flowers[i].getRealPrice());
         }
         System.out.println("Price of whole bouquet - " + result);
         return result;
 
     }
-   public void sortBouquetByFreshness(){
+
+    public void sortBouquetByFreshness() {
         Arrays.sort(flowers);
-       System.out.println("Sort bouquet by freshness: ");
-       this.print();
+        System.out.println("Sort bouquet by freshness: ");
+        this.print();
     }
+
     public void printFlowersByStemLengthRange() {
         float firstNumber, secondNumber;
         while (true) {
@@ -117,7 +117,8 @@ public class Bouquet {
             }
         }
     }
-    public  float enterFloatFromConsole() {
+
+    public float enterFloatFromConsole() {
         Scanner scanner = new Scanner(System.in);
         float result = 0f;
         while (true) {

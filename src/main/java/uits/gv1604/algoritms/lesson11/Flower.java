@@ -1,8 +1,6 @@
 package uits.gv1604.algoritms.lesson11;
 
 
-
-
 public abstract class Flower implements Comparable<Flower> {
     private String color;
     private int freshness;
@@ -15,8 +13,9 @@ public abstract class Flower implements Comparable<Flower> {
         this.freshness = freshness;
         this.stemLength = stemLength;
     }
+
     public int compareTo(Flower flower) {
-       return this.getFreshness() - flower.getFreshness();
+        return this.getFreshness() - flower.getFreshness();
     }
 
     public String getColor() {
@@ -101,15 +100,16 @@ class Tulip extends Flower {
                 ", averegePrice=" + getAveregePrice() +
                 '}';
     }
+
     @Override
     float getRealPrice() {
         return (getAveregePrice() / 10) * getFreshness();
     }
 
 }
+
 class Lilia extends Flower {
     private final static String NAME = "Lilia";
-
 
 
     public Lilia(float averegePrice, String color, int freshness, float stemLength) {
@@ -118,7 +118,7 @@ class Lilia extends Flower {
 
     @Override
     public String toString() {
-        return NAME +" {" +
+        return NAME + " {" +
                 "color='" + getColor() + '\'' +
                 ", freshness=" + getFreshness() +
                 ", stemLength=" + getStemLength() +
