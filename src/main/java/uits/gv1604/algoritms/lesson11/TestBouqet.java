@@ -10,7 +10,8 @@ public class TestBouqet {
         bouquet.getBouqet();
         bouquet.print();
         bouquet.getPriceOfBouquet();
-        bouquet.sortBouquetByStemLength();
+        bouquet.sortBouquetByFreshness();
+        bouquet.printFlowersByStemLengthRange();
     }
     public static int enterQuantityFromConsole() {
 

@@ -16,7 +16,7 @@ public abstract class Flower implements Comparable<Flower> {
         this.stemLength = stemLength;
     }
     public int compareTo(Flower flower) {
-       return (int)((this.getStemLength() - flower.getStemLength())*10.0f);
+       return this.getFreshness() - flower.getFreshness();
     }
 
     public String getColor() {

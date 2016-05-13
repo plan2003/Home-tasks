@@ -1,7 +1,10 @@
 package uits.gv1604.algoritms.lesson11;
 
+import com.kaplan.library.CorrectEntry;
+
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Bouquet {
 
@@ -88,12 +91,49 @@ public class Bouquet {
         return result;
 
     }
-   public void sortBouquetByStemLength(){
+   public void sortBouquetByFreshness(){
         Arrays.sort(flowers);
-       System.out.println("Sort bouquet: ");
+       System.out.println("Sort bouquet by freshness: ");
        this.print();
     }
-
+    public void printFlowersByStemLengthRange() {
+        float firstNumber, secondNumber;
+        while (true) {
+            System.out.println("To display the flowers within the specified range of stem length," +
+                    "\n" + "enter the first value: ");
+            firstNumber = enterFloatFromConsole();
+            System.out.println("And enter the second value: ");
+            secondNumber = enterFloatFromConsole();
+            if (secondNumber < firstNumber) {
+                System.out.println("The first value can't be more than the second one! Please try again.");
+            } else {
+                break;
+            }
+        }
+        for (int index = 0; index < flowers.length; index++) {
+            if (firstNumber <= flowers[index].getStemLength() &&
+                    flowers[index].getStemLength() <= secondNumber) {
+                System.out.println(flowers[index]);
+            }
+        }
+    }
+    public  float enterFloatFromConsole() {
+        Scanner scanner = new Scanner(System.in);
+        float result = 0f;
+        while (true) {
+            try {
+                result = Float.parseFloat(scanner.nextLine());
+                if (result < 0.0F || result > MAX_STEM_LENGTH_OF_FLOWER) {
+                    throw new Exception();
+                }
+                break;
+            } catch (Exception e) {
+                System.out.println("Input mismatch. Please try again:");
+                continue;
+            }
+        }
+        return result;
+    }
 
 }
 
