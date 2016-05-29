@@ -66,4 +66,5 @@ public class Person {
                 ", middleName='" + getMiddleName() + "\'" +
                 ", address='" + getAddress() + "\'" + "}";
     }
+
 }
