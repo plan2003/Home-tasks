@@ -9,7 +9,6 @@ import uits.gv1604.algoritms.lesson17.vegetables.Celery;
 import uits.gv1604.algoritms.lesson17.vegetables.Onion;
 import uits.gv1604.algoritms.lesson17.vegetables.Potato;
 
-import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class Basket {
@@ -72,7 +71,7 @@ public class Basket {
         index = len;
     }
 
-   public void put(Plant plant) {
+    public void put(Plant plant) {
         index++;
 
         if (plants.length <= index) {
@@ -85,21 +84,22 @@ public class Basket {
         plants[index] = plant;
     }
 
-   public void put(Plant[] pl) {
+    public void put(Plant[] pl) {
         Plant[] tempArray = new Plant[plants.length + pl.length];
         for (int i = 0; i < plants.length; i++) {
             tempArray[i] = plants[i];
         }
-        for (int curI = index+1 ; curI < ((index+1) + pl.length) ; curI++) {
-            tempArray[curI] = pl[curI - (index+1) ];
+        for (int curI = index + 1; curI < ((index + 1) + pl.length); curI++) {
+            tempArray[curI] = pl[curI - (index + 1)];
         }
         plants = tempArray;
         for (int k = 0; k < pl.length; k++) {
             if (pl[k] != null) index++;
         }
     }
-   public void put(Basket basket) {
-        Plant [] pl = basket.plants;
+
+    public void put(Basket basket) {
+        Plant[] pl = basket.plants;
         this.put(pl);
     }
 
@@ -109,38 +109,46 @@ public class Basket {
                 System.out.println(i + " = " + plants[i]);
         }
     }
-    public Plant extract (int indexOfEx) {
+
+    public Plant extract(int indexOfEx) {
         if (indexOfEx <= index) {
-            Plant [] temp = plants;
-            System.arraycopy(temp, indexOfEx + 1, plants, indexOfEx, plants.length - indexOfEx -1 );
+            Plant[] temp = plants;
+            System.arraycopy(temp, indexOfEx + 1, plants, indexOfEx, plants.length - indexOfEx - 1);
             index--;
             return plants[indexOfEx];
-        }
-        else throw new IndexOutOfBoundsException("No such index in the basket!");
+        } else throw new IndexOutOfBoundsException("No such index in the basket!");
     }
 
-    public Plant [] extractAll () {
-        Plant [] temp = plants;
-        plants = new  Plant[10];
+    public Plant[] extractAll() {
+        Plant[] temp = plants;
+        plants = new Plant[10];
         index = -1;
         return temp;
     }
 
-    public Plant [] extractAllFruits () {
-        Plant [] temp = plants;
-        int count = 0;
-        for (int i = 0; i < temp.length; i++) {
+    public Plant[] extractAllFruits() {
+        Plant[] temp = new Plant[plants.length];
+        Plant[] tempForThis = new Plant[plants.length];
+        int count = 0, countForThis = 0;
+        for (int i = 0; i < plants.length; i++) {
             if (plants[i] instanceof Fruit) {
-                temp[count] = this.extract(i);
-                count++;
+                temp[count++] = plants[i];
+            } else {
+                tempForThis[countForThis++] = plants[i];
             }
         }
-        Plant[] temp2 = new Plant[count];
-        for (int k = 0; k < temp2.length; k++ ) {
-            temp2 [k] = temp [k];
+        Plant[] resultArrayFruits = new Plant[count];
+        for (int k = 0; k < resultArrayFruits.length; k++) {
+            resultArrayFruits[k] = temp[k];
         }
-        return temp2;
+        Plant[] resultForThis = new Plant[countForThis];
+        for (int k = 0; k < resultForThis.length; k++) {
+            resultForThis[k] = tempForThis[k];
+        }
+        plants = resultForThis;
+        this.index = resultForThis.length - 1;
+        return resultArrayFruits;
+
+
     }
-
-
 }

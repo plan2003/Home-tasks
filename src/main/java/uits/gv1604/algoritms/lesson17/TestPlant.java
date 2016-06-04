@@ -55,7 +55,8 @@ public class TestPlant {
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
         System.out.println("Size of basket = " + (basket.index + 1));
-       /* System.out.println("Enter size of second basket:");
+       //--------------------------------------------
+        System.out.println("Enter size of second basket:");
         int quantity2 = enterQuantityFromConsole();
         Basket basket2 = new Basket(quantity2, true);
         System.out.println("Second basket: ");
@@ -65,8 +66,8 @@ public class TestPlant {
         basket.put(new Pear(11111111.9f, Colors.Rose, true, 9));
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));*/
-   /*     basket.extract(2);
+        System.out.println("Size of basket = " + (basket.index + 1));
+        basket.extract(2);
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
         System.out.println("Size of basket = " + (basket.index + 1));
@@ -76,8 +77,10 @@ public class TestPlant {
         System.out.println(Arrays.toString(basket.extractAll()));
         System.out.println();
         basket.put(ap);
-        basket.put(anotherPlants);
-        basket.print();*/
+       // basket.put(anotherPlants);
+        basket.print();
+        //--------------------------------------------
+        System.out.println("Basket with fruits: ----");
         System.out.println(Arrays.toString(basket.extractAllFruits()));
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
