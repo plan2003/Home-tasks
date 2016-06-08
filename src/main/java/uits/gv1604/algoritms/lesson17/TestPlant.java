@@ -88,6 +88,7 @@ public class TestPlant {
         basket.put(new Apple(10.230f, Colors.Red, true, 10));
         basket.put(new Pear(0.230f, Colors.Green, true, 9));
         basket.print();
+        System.out.println("Weight of Basket = " + basket.getWeightOfBasket());
         System.out.println("Capacity of basket = " + basket.plants.length);
         System.out.println("Size of basket = " + basket.getSize());
         System.out.println("Basket with vegetables --------");
@@ -95,6 +96,7 @@ public class TestPlant {
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
         System.out.println("Size of basket = " + basket.getSize());
+
 
     }
 

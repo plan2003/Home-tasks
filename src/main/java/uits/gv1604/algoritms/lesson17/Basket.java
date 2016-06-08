@@ -42,7 +42,7 @@ public class Basket {
 
             for (int i = 0; i < len; i++) {
                 int choice = random.nextInt(8);
-                int choiceOfCondition = random.nextInt(6) + MIN_CONDITION;
+                int choiceOfCondition = random.nextInt(MAX_CONDITION - MIN_CONDITION) + MIN_CONDITION;
                 float choiceOfWeight = random.nextFloat() * (MAX_WEIGHT + MIN_WEIGHT)+ MIN_WEIGHT;
                 switch (choice) {
                     case 0:
@@ -186,7 +186,16 @@ public class Basket {
         plants = resultForThis;
         this.index = resultForThis.length - 1;
         return resultArrayVegetables;
+    }
+    public float getWeightOfBasket() {
+        float WeightOfBasket = 0;
+        for (int i = 0; i < plants.length; i++) {
+                if (plants[i]!= null) {
+                   WeightOfBasket += plants[i].weight;
+                }
+        }
 
 
+        return WeightOfBasket;
     }
 }
