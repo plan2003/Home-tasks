@@ -7,6 +7,7 @@ import uits.gv1604.algoritms.lesson17.fruits.Pear;
 import uits.gv1604.algoritms.lesson17.vegetables.Carrot;
 import uits.gv1604.algoritms.lesson17.vegetables.Celery;
 import uits.gv1604.algoritms.lesson17.vegetables.Onion;
+import uits.gv1604.algoritms.lesson17.vegetables.Potato;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,7 +16,7 @@ public class TestPlant {
     public static void main(String[] args) {
         Plant[] anotherPlants = new Plant[4];
         anotherPlants[0] = new Carrot(20.0f, Colors.Orange, true, 10);
-        anotherPlants[1] = new Carrot(21.0f, Colors.Orange, true, 9);
+        anotherPlants[1] = new Banana(21.0f, Colors.Yellow, true, 9);
         anotherPlants[2] = new Orange(22.0f, Colors.Orange, true, 8);
         anotherPlants[3] = new Carrot(23.0f, Colors.Orange, true, 7);
         Plant[] oneMorePlants = new Plant[3];
@@ -25,8 +26,6 @@ public class TestPlant {
         Fruit ap = new Apple(50.0f, Colors.Red, true, 10);
         Vegetable veg = new Celery(100.0f, Colors.Beige, true, 9);
         Fruit pear = new Pear(7, Colors.Yellow, true, 6);
-
-
         System.out.println("Before clean: weight =" + ap.weight + ", and sign of clean -" + ap.signOfClean);
         ap.peel();
         System.out.println("After clean: weight =" + ap.weight + ", and sign of clean -" + ap.signOfClean);
@@ -41,21 +40,20 @@ public class TestPlant {
         basket.put(ap);
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));
+        System.out.println("Size of basket = " + basket.getSize());
         pear.peel();
         basket.print();
         System.out.println();
         basket.put(anotherPlants);
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));
+        System.out.println("Size of basket = " + basket.getSize());
         basket.print();
-        System.out.println("Size of basket = " + (basket.index + 1));
+        System.out.println("Size of basket = " + basket.getSize());
         basket.put(oneMorePlants);
         basket.put(new Pear(8, Colors.Green, true, 7));
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));
-       //--------------------------------------------
+        System.out.println("Size of basket = " + basket.getSize());
         System.out.println("Enter size of second basket:");
         int quantity2 = enterQuantityFromConsole();
         Basket basket2 = new Basket(quantity2, true);
@@ -66,25 +64,37 @@ public class TestPlant {
         basket.put(new Pear(11111111.9f, Colors.Rose, true, 9));
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));
+        System.out.println("Size of basket = " + basket.getSize());
         basket.extract(2);
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));
+        System.out.println("Size of basket = " + basket.getSize());
         System.out.println(basket.extract(12));
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));
-        System.out.println(Arrays.toString(basket.extractAll()));
+        System.out.println("Size of basket = " + basket.getSize());
+       // System.out.println(Arrays.toString(basket.extractAll()));
         System.out.println();
         basket.put(ap);
-       // basket.put(anotherPlants);
+        basket.put(anotherPlants);
         basket.print();
-        //--------------------------------------------
         System.out.println("Basket with fruits: ----");
         System.out.println(Arrays.toString(basket.extractAllFruits()));
         basket.print();
         System.out.println("Capacity of basket = " + basket.plants.length);
-        System.out.println("Size of basket = " + (basket.index + 1));
+        System.out.println("Size of basket = " + basket.getSize());
+        basket.put(new Carrot(12.0f, Colors.Orange, true, 4));
+        basket.put(new Onion(12.0f, Colors.Gold, true, 3));
+        basket.put(new Potato(11.0f, Colors.Beige, true, 4));
+        basket.put(new Apple(10.230f, Colors.Red, true, 10));
+        basket.put(new Pear(0.230f, Colors.Green, true, 9));
+        basket.print();
+        System.out.println("Capacity of basket = " + basket.plants.length);
+        System.out.println("Size of basket = " + basket.getSize());
+        System.out.println("Basket with vegetables --------");
+        System.out.println(Arrays.toString(basket.extractAllVegetables()));
+        basket.print();
+        System.out.println("Capacity of basket = " + basket.plants.length);
+        System.out.println("Size of basket = " + basket.getSize());
 
     }
 

@@ -17,7 +17,10 @@ public class Basket {
     Random random = new Random();
     static final int MIN_CONDITION = 4;
     static final int MAX_CONDITION = 10;
-    int index = -1;
+    static final float MIN_WEIGHT = 0.4f;
+    static final float MAX_WEIGHT = 0.1f;
+     private int index = -1;
+    private int size = index + 1;
 
     public Basket(int len) {
         if (len > 10) {
@@ -40,30 +43,31 @@ public class Basket {
             for (int i = 0; i < len; i++) {
                 int choice = random.nextInt(8);
                 int choiceOfCondition = random.nextInt(6) + MIN_CONDITION;
+                float choiceOfWeight = random.nextFloat() * (MAX_WEIGHT + MIN_WEIGHT)+ MIN_WEIGHT;
                 switch (choice) {
                     case 0:
-                        plants[i] = new Potato(2, Colors.Rose, true, choiceOfCondition);
+                        plants[i] = new Potato(choiceOfWeight, Colors.Rose, true, choiceOfCondition);
                         break;
                     case 1:
-                        plants[i] = new Celery(3, Colors.Beige, true, choiceOfCondition);
+                        plants[i] = new Celery(choiceOfWeight, Colors.Beige, true, choiceOfCondition);
                         break;
                     case 2:
-                        plants[i] = new Onion(4, Colors.Gold, true, choiceOfCondition);
+                        plants[i] = new Onion(choiceOfWeight, Colors.Gold, true, choiceOfCondition);
                         break;
                     case 3:
-                        plants[i] = new Carrot(3, Colors.Orange, true, choiceOfCondition);
+                        plants[i] = new Carrot(choiceOfWeight, Colors.Orange, true, choiceOfCondition);
                         break;
                     case 4:
-                        plants[i] = new Banana(4, Colors.Yellow, true, choiceOfCondition);
+                        plants[i] = new Banana(choiceOfWeight, Colors.Yellow, true, choiceOfCondition);
                         break;
                     case 5:
-                        plants[i] = new Pear(4, Colors.Yellow, true, choiceOfCondition);
+                        plants[i] = new Pear(choiceOfWeight, Colors.Yellow, true, choiceOfCondition);
                         break;
                     case 6:
-                        plants[i] = new Apple(6, Colors.Green, true, choiceOfCondition);
+                        plants[i] = new Apple(choiceOfWeight, Colors.Green, true, choiceOfCondition);
                         break;
                     default:
-                        plants[i] = new Orange(5, Colors.Orange, true, choiceOfCondition);
+                        plants[i] = new Orange(choiceOfWeight, Colors.Orange, true, choiceOfCondition);
                         break;
                 }
             }
@@ -126,6 +130,11 @@ public class Basket {
         return temp;
     }
 
+    public int getSize() {
+        size = index + 1;
+        return size;
+    }
+
     public Plant[] extractAllFruits() {
         Plant[] temp = new Plant[plants.length];
         Plant[] tempForThis = new Plant[plants.length];
@@ -134,7 +143,9 @@ public class Basket {
             if (plants[i] instanceof Fruit) {
                 temp[count++] = plants[i];
             } else {
-                tempForThis[countForThis++] = plants[i];
+                if (plants[i]!= null) {
+                    tempForThis[countForThis++] = plants[i];
+                }
             }
         }
         Plant[] resultArrayFruits = new Plant[count];
@@ -148,6 +159,33 @@ public class Basket {
         plants = resultForThis;
         this.index = resultForThis.length - 1;
         return resultArrayFruits;
+
+
+    }
+    public Plant[] extractAllVegetables() {
+        Plant[] temp = new Plant[plants.length];
+        Plant[] tempForThis = new Plant[plants.length];
+        int count = 0, countForThis = 0;
+        for (int i = 0; i < plants.length; i++) {
+            if (plants[i] instanceof Vegetable) {
+                temp[count++] = plants[i];
+            } else {
+                if (plants[i]!= null) {
+                    tempForThis[countForThis++] = plants[i];
+                }
+            }
+        }
+        Plant[] resultArrayVegetables = new Plant[count];
+        for (int k = 0; k < resultArrayVegetables.length; k++) {
+            resultArrayVegetables[k] = temp[k];
+        }
+        Plant[] resultForThis = new Plant[countForThis];
+        for (int k = 0; k < resultForThis.length; k++) {
+            resultForThis[k] = tempForThis[k];
+        }
+        plants = resultForThis;
+        this.index = resultForThis.length - 1;
+        return resultArrayVegetables;
 
 
     }
