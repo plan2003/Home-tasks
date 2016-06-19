@@ -13,7 +13,6 @@ public class PatientTest {
 
     public static void main(String[] args) {
 
-
         System.out.println("Enter number of patients:");
         int quantity = enterQuantityFromConsole(0,100);
         Patient[] patients = new Patient[quantity];
@@ -119,45 +118,46 @@ public class PatientTest {
             int choice = random.nextInt(8);
             int choiceOfNumberCard = random.nextInt(MAX_NUMBER_MEDICAL_CARD - MIN_NUMBER_MEDICAL_CARD)
                     + MIN_NUMBER_MEDICAL_CARD;
+            int lastNameIndex = (choice + i) % 8;
 
             switch (choice) {
                 case 0:
-                    patients[i] = new Patient(i, lastNames[(choice + i) % 8] + i, names[choice],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[choice],
                             "J", "New York," + i + "Avenue, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Enuresis);
                     break;
                 case 1:
-                    patients[i] = new Patient(i, lastNames[(choice + i) % 8] + i, names[(choice + i + 3) % 8],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[(choice + i + 3) % 8],
                             "Q", "Chicago," + i + "Street, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Cancer);
                     break;
                 case 2:
-                    patients[i] = new Patient(i, lastNames[(choice + i) % 8] + i, names[(choice + i + 6) % 8],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[(choice + i + 6) % 8],
                             "F", "Philadelphia," + i + "Street, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Colds);
                     break;
                 case 3:
-                    patients[i] = new Patient(i, lastNames[(choice + i) % 8] + i, names[(choice + i + 4) % 8],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[(choice + i + 4) % 8],
                             "O", "Los Angeles," + i + "Street, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Schizophrenia);
                     break;
                 case 4:
-                    patients[i] = new Patient(i, lastNames[(choice + i) % 8] + i, names[(choice + i + 7) % 8],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[(choice + i + 7) % 8],
                             "P", "Las Vegas," + i + "Bulvar, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Flat);
                     break;
                 case 5:
-                    patients[i] = new Patient(i, lastNames[(choice + i) % 8] + i, names[(choice + i + 5) % 8],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[(choice + i + 5) % 8],
                             "C", "Ciatle," + i + "Alley, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Hemorrhoids);
                     break;
                 case 6:
-                    patients[i] = new Patient(i, lastNames[choice] + i, names[(choice + i + 2) % 8],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[(choice + i + 2) % 8],
                             "R", "New Jersey," + i + "Lane, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Diarrhea);
                     break;
                 default:
-                    patients[i] = new Patient(i, lastNames[(choice + i) % 8] + i, names[(choice + i + 1) % 8],
+                    patients[i] = new Patient(i, lastNames[lastNameIndex] + i, names[(choice + i + 1) % 8],
                             "M", "Orlando," + i + "Str, " + ((i * choice) + 1),
                             (choiceOfNumberCard * choice + 111111), choiceOfNumberCard, Diagnosis.Chickenpox);
                     break;
